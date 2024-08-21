@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useReducer, useState} from 'react';
 import {
   Image,
   ImageProps,
@@ -18,15 +18,15 @@ export default function Producer({
   image: ImageProps;
   name: string;
   ranking: number;
-  distance: string;
+  distance: number;
 }) {
-  const [rankingSize, setRankingSize] = useState<'small' | 'large'>('small');
+  const [rankingSize, changeRankingSize] = useReducer(
+    (state: 'small' | 'large') => (state === 'small' ? 'large' : 'small'),
+    'small',
+  );
+  const distanceLabel = useMemo(() => `${distance}m`, [distance]);
   return (
-    <TouchableOpacity
-      onPress={() =>
-        setRankingSize(rankingSize === 'small' ? 'large' : 'small')
-      }
-      style={styles.container}>
+    <TouchableOpacity onPress={changeRankingSize} style={styles.container}>
       <Image source={image} style={styles.image} />
       <View style={styles.content}>
         <View>
@@ -37,7 +37,7 @@ export default function Producer({
             isEditable={rankingSize === 'large'}
           />
         </View>
-        <Text style={styles.subtitle}>{distance}</Text>
+        <Text style={styles.subtitle}>{distanceLabel}</Text>
       </View>
     </TouchableOpacity>
   );

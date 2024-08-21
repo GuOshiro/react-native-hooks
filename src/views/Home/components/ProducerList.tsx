@@ -1,24 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, Text} from 'react-native';
-import {getProducts} from '../../../serivces/products';
-import products from '../../../mocks/products';
+import React from 'react';
+import {FlatList, StyleSheet} from 'react-native';
 import Producer from './Producer';
 import ProducerHeader from './ProducerHeader';
+import {useProducers} from '../../../hooks/useProducer';
 
 export default function ProducerList() {
-  const [data, setData] = useState<typeof products>();
-
-  useEffect(() => {
-    const response = getProducts();
-    setData(response);
-  }, []);
-
+  const [title, list] = useProducers();
   return (
     <FlatList
       style={styles.container}
-      data={data?.list}
+      data={list}
       renderItem={({item}) => <Producer {...item} />}
-      ListHeaderComponent={<ProducerHeader title={data?.title} />}
+      ListHeaderComponent={<ProducerHeader title={title} />}
       keyExtractor={item => item.name}
     />
   );
