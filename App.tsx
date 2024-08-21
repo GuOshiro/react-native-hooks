@@ -1,13 +1,19 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import Home from './src/views/Home';
 
 function App() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Home />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;
