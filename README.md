@@ -1,6 +1,6 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-This project is part of the [**React Native: utilizando e criando hooks course**](https://reactnative.dev) on Alura, aimed at enhancing knowledge in React Native. Feel free to interact and explore the project!
+This project is part of the [**React Native: utilizando e criando hooks course**](https://cursos.alura.com.br/course/react-native-utilizando-criando-hooks) on [**Alura**](https://www.alura.com.br), aimed at enhancing knowledge in React Native. Feel free to interact and explore the project!
 
 
 # Getting Started
